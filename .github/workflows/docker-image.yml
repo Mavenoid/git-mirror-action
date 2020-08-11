@@ -15,5 +15,5 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
           registry: docker.pkg.github.com
-          repository: Mavenoid/git-mirror-action/git-mirror-action
+          repository: mavenoid/git-mirror-action/git-mirror-action
           tag_with_ref: true
