@@ -37,7 +37,7 @@ jobs:
   git-mirror:
     runs-on: ubuntu-latest
     steps:
-      - uses: mavenoid/git-mirror-action@2.1.0
+      - uses: mavenoid/git-mirror-action@2.1.1
         with:
           source-repo: 'git@github.com:wearerequired/swisscom-magazine.git'
           destination-repo: 'git@bitbucket.org:wearerequired/git-mirror-action.git'
@@ -59,7 +59,7 @@ When prompted, provide a GitHub access token with `read:packages` scope.
 
 Run the prebuilt image:
 
-docker run --rm -e "SSH_PRIVATE_KEY=$(cat ~/.ssh/id_rsa)" "docker.pkg.github.com/mavenoid/git-mirror-action/git-mirror-action:2.1.0" "$SOURCE_REPO" "$DESTINATION_REPO"
+docker run --rm -e "SSH_PRIVATE_KEY=$(cat ~/.ssh/id_rsa)" "docker.pkg.github.com/mavenoid/git-mirror-action/git-mirror-action:2.1.1" "$SOURCE_REPO" "$DESTINATION_REPO"
 
 ### Building and running locally
 
@@ -73,7 +73,7 @@ docker run --rm -e "SSH_PRIVATE_KEY=$(cat ~/.ssh/id_rsa)" $(docker build -q .) "
 
 To release a new version of git-mirror-action:
 
-1. Find and replace the current version number ("2.1.0") with the new version number
+1. Find and replace the current version number ("2.1.1") with the new version number
 2. Commit and push to GitHub
 3. [Create and publish a new release](https://github.com/Mavenoid/git-mirror-action/releases/new) with the "Tag version" exactly matching the new version number.
 
