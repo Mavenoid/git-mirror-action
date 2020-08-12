@@ -15,7 +15,7 @@ inputs:
     required: true
   github-token:
     description: 'GitHub token for pulling internal docker container (container is public so any token will do).'
-    required: true
+    default: ${{ github.token }}
 runs:
   using: "composite"
   steps:
@@ -23,8 +23,8 @@ runs:
       run: echo ${{ inputs.github-token }} | docker login docker.pkg.github.com -u $GITHUB_ACTOR --password-stdin
       shell: bash
     - name: Pull Image
-      run: docker pull "docker.pkg.github.com/mavenoid/git-mirror-action/git-mirror-action:2.1.1"
+      run: docker pull "docker.pkg.github.com/mavenoid/git-mirror-action/git-mirror-action:2.2.0"
       shell: bash
     - name: Git Mirror
-      run: docker run --rm -e "SSH_PRIVATE_KEY=${{ inputs.ssh-private-key }}" "docker.pkg.github.com/mavenoid/git-mirror-action/git-mirror-action:2.1.1" "${{ inputs.source-repo }}" "${{ inputs.destination-repo }}"
+      run: docker run --rm -e "SSH_PRIVATE_KEY=${{ inputs.ssh-private-key }}" "docker.pkg.github.com/mavenoid/git-mirror-action/git-mirror-action:2.2.0" "${{ inputs.source-repo }}" "${{ inputs.destination-repo }}"
       shell: bash
