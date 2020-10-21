@@ -22,9 +22,9 @@ Create a [SSH key](https://help.github.com/en/github/authenticating-to-github/ge
 
 ### `github-token`
 
-**Required** A github token with at least the `read:packages` scope. You can just use `${{ secrets.GITHUB_TOKEN }}` with no other config required.
+**Optional** Defaults to `${{ github.token }}`. A github token with at least the `read:packages` scope.
 
-This is used to clone the pre-built docker image, which speeds up execution vs. building the docker image every time. It does not need to be a token for Mavenoid as the Docker image itself is public, but GitHub do not allow you to read packages without a token, even when the packages are public.
+This is used to clone the pre-built docker image, which speeds up execution vs. building the docker image every time. It does not need to be a token for Mavenoid as the Docker image itself is public, but GitHub does not allow you to read packages without a token, even when the packages are public.
 
 ## Example workflow
 
